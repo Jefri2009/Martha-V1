@@ -586,7 +586,7 @@ esteh: 0,
             } else
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
-                    welcome: false,
+                    welcome: ture,
                     detect: false,
                     sWelcome: '',
                     sBye: '',
