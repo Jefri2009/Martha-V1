@@ -1,21 +1,23 @@
-import fetch from 'node-fetch'
-let handler = async(m, { conn, text, usedPrefix, command }) => {
-let pp = await conn.profilePictureUrl(m.chat).catch(_ => null)
+import fs from 'fs'
+let handler = async (m, { conn, args, command }) => {
+let totalf = Object.values(global.plugins).filter(
+    (v) => v.help && v.tags
+  ).length;
+ await conn.sendButton(m.chat, `YT: LANA BOT\n`,wm + '\n\n' + botdate, giflogo, [['OK','ok']], m, {
+contextInfo: { externalAdReply :{
+                        mediaUrl: '',
+                        mediaType: 2,
+                        description: 'anu',
+                        title: bottime,
+                        body: 'By Martha',          previewType: 0,
+                        thumbnail: fs.readFileSync("./thumbnail.jpg"),
+                        sourceUrl: 'https://youtube.com/channel/UCh0HcISPLVdfPVMErXdY6rw'
+                      }}
+})
+}
 
-let str = `*https://github.com/ImYanXiao/Elaina-MultiDevice*`
-let wibu = `https://hadi-api.herokuapp.com/api/loli` 
-let thumb = await(await fetch(wibu)).buffer()
-conn.sendButtonDoc(m.chat, str, wm,'ᴏᴋ','Bilek', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: "https://Instagram.com/Xiao_yan_21",
-    title: 'Elaina-MultiDevice',
-    body: 'want source code?',
-    thumbnail: thumb,
-    sourceUrl: sig
-  }
-  } }) 
-          }
-handler.help = ['sc', 'script']
-handler.tags = ['info', 'main']
-handler.command =  /^(script|sc)$/i
 
+handler.help = ['sc','script]
+handler.tags = ['sc','script']
+handler.command = ['sc','script']
 export default handler
